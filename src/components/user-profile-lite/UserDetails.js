@@ -8,6 +8,7 @@ import {
   ListGroupItem,
   Progress
 } from "shards-react";
+import axios from "axios";
 
 const UserDetails = ({ userDetails,active, ontoogle }) => (
   <Card small className="mb-4 pt-3">
@@ -20,7 +21,7 @@ const UserDetails = ({ userDetails,active, ontoogle }) => (
           width="110"
         />
       </div>
-      <h4 className="mb-0">{userDetails.name}</h4>
+      <h4 className="mb-0"> {userDetails.lastName} {userDetails.firstName}</h4>
       <span className="text-muted d-block mb-2">{userDetails.etablissement}</span>
       <Button onClick={ontoogle} pill outline size="sm" className="mb-2">
         <i className="material-icons mr-1">person_add</i> {active? "Historique de reservation" : "Ajouter"} 
@@ -29,19 +30,19 @@ const UserDetails = ({ userDetails,active, ontoogle }) => (
     <ListGroup flush>
       <ListGroupItem className="px-4">
         <div className="progress-wrapper">
-          <h5 className="mb-0">Email: {userDetails.email}</h5>
+          <h5 className="mb-0">Niveau etude: {userDetails.level}</h5>
         </div>
       </ListGroupItem>
       <ListGroupItem className="px-4">
         <div className="progress-wrapper">
-          <h5 className="mb-0">Telephone: {userDetails.telephone}</h5>
+          <h5 className="mb-0">Telephone: {userDetails.phone}</h5>
         </div>
       </ListGroupItem>
       <ListGroupItem className="p-4">
         <strong className="text-muted d-block mb-2">
-          {userDetails.metaTitle}
+          Conseil Scolaire
         </strong>
-        <span>{userDetails.description}</span>
+        <span>{userDetails.schoolBoard}</span>
       </ListGroupItem>
     </ListGroup>
   </Card>

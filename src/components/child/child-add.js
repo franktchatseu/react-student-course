@@ -12,11 +12,14 @@ class AddChild extends React.Component {
   state = {
     activeAdd: true,
     user: {
-      name: "",
+      firstName: "",
+      lastName: "",
+      level:"",
       avatar: require("./../../images/avatars/0.jpg"),
       etablissement:"",
+      schoolBoard: "",
       email: "",
-      telephone:"",
+      phone:"",
       description: "",
 
 

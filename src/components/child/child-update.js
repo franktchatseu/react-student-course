@@ -5,22 +5,66 @@ import PageTitle from "../common/PageTitle";
 import UserDetails from "../user-profile-lite/UserDetails";
 import UserAccountDetails from "../user-profile-lite/UserAccountDetails";
 import { render } from "react-dom";
-import Discussions from "../blog/Discussions";
+import Reservations from "./Reservation";
 
 class ChildUpdate extends React.Component {
 
   state = {
     activeAdd: true,
     user: {
-      name: "Frank tchatseu",
+      firstName: "",
+      lastName: "",
+      level:"",
       avatar: require("./../../images/avatars/0.jpg"),
-      jobTitle: "Dev IT",
-      performanceReportTitle: "Workload",
-      performanceReportValue: 74,
-      metaTitle: "Description",
-      metaValue:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?"
-
+      etablissement:"",
+      schoolBoard: "",
+      email: "",
+      phone:"",
+      description: "",
+      historyReservation:[
+        {
+          date:"jeudi le 8",
+          reservation:[
+            {
+              hour: "15h",
+              course: "francais"
+            },
+            {
+              hour: "18h",
+              course: "english"
+            },
+            
+          ]
+        },
+        {
+          date:"lundi le 7",
+          reservation:[
+            {
+              hour: "11h",
+              course: "histoire"
+            },
+            {
+              hour: "13h",
+              course: "geogra"
+            },
+            
+          ]
+        },
+        {
+          date:"lundi le 7",
+          reservation:[
+            {
+              hour: "11h",
+              course: "histoire"
+            },
+            {
+              hour: "13h",
+              course: "geogra"
+            },
+            
+          ]
+        }
+      ]
     }
   }
   onChange = (event) => {
@@ -45,7 +89,7 @@ class ChildUpdate extends React.Component {
             this.state.activeAdd ? (<Col lg="8">
               <UserAccountDetails onchange={this.onChange} userDetails={this.state.user} />
             </Col>) :
-             <Discussions /> 
+             <Reservations userDetails={this.state.user}/> 
           }
 
         </Row>

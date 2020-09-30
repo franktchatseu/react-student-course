@@ -25,15 +25,39 @@ const UserAccountDetails = ({ userDetails,onchange }) => (
         <Row>
           <Col>
             <Form>
-              <Row form>
+            <Row form>
                 {/* First Name */}
                 <Col md="6" className="form-group">
-                  <label htmlFor="feFirstName">Nom et Prenom</label>
+                  <label htmlFor="feFirstName">Prenom</label>
                   <FormInput
                     id="FirstName"
                     placeholder="First Name"
-                    value={userDetails.name}
-                    name = "name"
+                    value={userDetails.lastName}
+                    name = "lastName"
+                    onChange={onchange}
+                  />
+                </Col>
+                {/* Last Name */}
+                <Col md="6" className="form-group">
+                  <label htmlFor="feLastName">Nom de Famille</label>
+                  <FormInput
+                    id="feLastName"
+                    placeholder="Last Name"
+                    value={userDetails.firstName}
+                    name ="firstName"
+                    onChange={onchange}
+                  />
+                </Col>
+              </Row>
+              <Row form>
+                {/* First Name */}
+                <Col md="6" className="form-group">
+                  <label htmlFor="feFirstName">Niveau Etude</label>
+                  <FormInput
+                    id="FirstName"
+                    placeholder="niveau etude"
+                    value={userDetails.level}
+                    name = "level"
                     onChange={onchange}
                   />
                 </Col>
@@ -52,14 +76,14 @@ const UserAccountDetails = ({ userDetails,onchange }) => (
               <Row form>
                 {/* Email */}
                 <Col md="6" className="form-group">
-                  <label htmlFor="feEmail">Email</label>
+                  <label htmlFor="feEmail">Conseil Scolaire</label>
                   <FormInput
-                    type="email"
+                    type="text"
                     id="feEmail"
-                    placeholder="Email Address"
-                    value={userDetails.email}
+                    placeholder="conseil scolaire"
+                    value={userDetails.schoolBoard}
                     onChange={onchange}
-                    name ="email"
+                    name ="schoolBoard"
                     autoComplete="email"
                   />
                 </Col>
@@ -70,27 +94,14 @@ const UserAccountDetails = ({ userDetails,onchange }) => (
                     type="text"
                     id="fePassword"
                     placeholder="Password"
-                    value={userDetails.telephone}
-                    name ="telephone"
+                    value={userDetails.phone}
+                    name ="phone"
                     onChange={onchange}
                     autoComplete="current-password"
                   />
                 </Col>
               </Row>
-              
-              <Row form>
-                {/* Description */}
-                <Col md="12" className="form-group">
-                  <label htmlFor="feDescription">Description</label>
-                  <FormTextarea 
-                    id="feDescription"
-                    rows="5"
-                    name ="description"
-                    onChange={onchange}
-                    value={userDetails.description}
-                    />
-                </Col>
-              </Row>
+            
               <Button theme="accent">Enregistrer</Button>
             </Form>
           </Col>
