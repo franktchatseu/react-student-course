@@ -2,8 +2,11 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import i18n from "./i18n";
-
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
+
+//url de base axios
+axios.defaults.baseURL ="http:8080//localhost/api/"
 
 ReactDOM.render(
     <Suspense fallback={null} >

@@ -108,7 +108,7 @@ class ChildList extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get('http:8080//localhost/api/childreen').then(
+    axios.get('childreen').then(
       (res) => {
         console.log(res);
         this.setState({ Child: this.res.data })

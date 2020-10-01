@@ -47,7 +47,7 @@ class AddChild extends React.Component {
     }
     console.log(childreen)
     this.clearField();
-    axios.post('http:8080//localhost/api/childreen', { childreen }).then(
+    axios.post('childreen', { childreen }).then(
       (res) => {
         console.log(res);
       }
