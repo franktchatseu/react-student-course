@@ -6,8 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 
 //url de base axios
-axios.defaults.baseURL ="http:8080//localhost/api/"
-
+axios.defaults.baseURL ="http://localhost:8000/api/";
+//inject the headers authorization in all request
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
 ReactDOM.render(
     <Suspense fallback={null} >
     <App />

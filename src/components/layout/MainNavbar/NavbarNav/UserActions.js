@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink as RouteNavLink } from "react-router-dom";
 import {
   Dropdown,
   DropdownToggle,
@@ -13,18 +13,25 @@ import {
 export default class UserActions extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(this.props)
     this.state = {
-      visible: false
+      visible: false,
+      user: JSON.parse(localStorage.getItem("user"))
     };
 
     this.toggleUserActions = this.toggleUserActions.bind(this);
   }
 
+  
   toggleUserActions() {
     this.setState({
       visible: !this.state.visible
     });
+  }
+
+  logout = () => {
+    localStorage.clear();
+
   }
 
   render() {
@@ -36,17 +43,17 @@ export default class UserActions extends React.Component {
             src={require("./../../../../images/avatars/0.jpg")}
             alt="User Avatar"
           />{" "}
-          <span className="d-none d-md-inline-block">Sierra Brooks</span>
+          <span className="d-none d-md-inline-block"> {this.state.user? this.state.user.name: "Sierra Brooks"} </span>
         </DropdownToggle>
         <Collapse tag={DropdownMenu} right small open={this.state.visible}>
-          <DropdownItem tag={Link} to="user-profile">
+          <DropdownItem tag={RouteNavLink} to="user-profile">
             <i className="material-icons">&#xE7FD;</i> Profile
           </DropdownItem>
-          <DropdownItem tag={Link} to="edit-user-profile">
+          <DropdownItem tag={RouteNavLink} to="edit-user-profile">
             <i className="material-icons">&#xE8B8;</i> Edit Profile
           </DropdownItem>
           <DropdownItem divider />
-          <DropdownItem tag={Link} to="/" className="text-danger">
+          <DropdownItem onClick={this.logout}  href="/child-add" className="text-danger">
             <i className="material-icons text-danger">&#xE879;</i> Logout
           </DropdownItem>
         </Collapse>

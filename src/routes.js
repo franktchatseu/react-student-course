@@ -24,7 +24,7 @@ export default [
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    component: () => <Redirect to="/childs" />
   },
   {
     path: "/blog-overview",
