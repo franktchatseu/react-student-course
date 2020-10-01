@@ -15,7 +15,7 @@ import {
   Button
 } from "shards-react";
 
-const UserAccountDetails = ({ userDetails,onchange,onSubmit }) => (
+const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
   <Card small className="mb-4">
     <CardHeader className="border-bottom">
       <h6 className="m-0">Formulaire</h6>
@@ -111,15 +111,15 @@ const UserAccountDetails = ({ userDetails,onchange,onSubmit }) => (
   </Card>
 );
 
-UserAccountDetails.propTypes = {
+AddChildForm.propTypes = {
   /**
    * The component's title.
    */
   title: PropTypes.string
 };
 
-UserAccountDetails.defaultProps = {
+AddChildForm.defaultProps = {
   title: "Account Details"
 };
 
-export default UserAccountDetails;
+export default AddChildForm;

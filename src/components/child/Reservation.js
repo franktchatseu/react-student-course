@@ -27,12 +27,12 @@ const Discussions = ({ title, discussions, userDetails }) => (
             {/* Content :: Title */}
             <div className="blog-comments__meta text-mutes">
 
-              <span className="text-mutes">- {seance.date}</span>
+              <span className="text-mutes">- {seance.date.toLocaleTimeString()}</span>
             </div>
 
             {/* Content :: Body */}
             {seance.reservation.map((reservation, idx) => (
-              <p className="m-0 my-1 mb-2 text-muted">{reservation.hour} -- {reservation.course}</p>
+              <p key={idx} className="m-0 my-1 mb-2 text-muted">{reservation.hour} -- {reservation.course}</p>
             ))}
           </div>
         </div>

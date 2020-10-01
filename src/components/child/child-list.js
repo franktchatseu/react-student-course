@@ -15,6 +15,7 @@ import {
 } from "shards-react";
 
 import PageTitle from "../common/PageTitle";
+import axios from "axios";
 
 class ChildList extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class ChildList extends React.Component {
     this.state = {
       backgroundImageAdd: require("../../images/content-management/3.jpeg"),
       // First list of posts.
-      PostsListOne: [
+      Child: [
         {
           backgroundImage: require("../../images/content-management/1.jpeg"),
           school: "LB Koutaba",
@@ -78,13 +79,25 @@ class ChildList extends React.Component {
       ],
     };
   }
+  componentDidMount(){
+    axios.get('http:8080//localhost/api/childreen').then(
+      (res) => {
+        console.log(res);
+        this.setState({Child : this.res.data})
+      }
+    ).catch(
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
   click = (e) => {
     console.log("ckikcicii")
   }
 
   render() {
     const {
-      PostsListOne,
+      Child,
       PostsListTwo,
       PostsListThree,
       PostsListFour
@@ -122,7 +135,7 @@ class ChildList extends React.Component {
         </Row>
 
         <Row>
-          {PostsListOne.map((post, idx) => (
+          {Child.map((post, idx) => (
             <Col lg="3" md="6" sm="12" className="mb-4" key={idx}>
               <NavLink tag={RouteNavLink} to="/child-update">
                 <Card onClick={this.click} small className="card-post card-post--1">
