@@ -1,8 +1,9 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
+
 
 import React from "react";
-import { NavLink as RouteNavLink } from "react-router-dom";
+import { NavLink as RouteNavLink, Route } from "react-router-dom";
 import { NavItem, NavLink } from "shards-react";
+import "./child.css"
 import {
   Container,
   Row,
@@ -22,68 +23,92 @@ class ChildList extends React.Component {
     super(props);
 
     this.state = {
-      backgroundImageAdd: require("../../images/content-management/3.jpeg"),
+      avatarAdd: require("../../images/content-management/3.jpeg"),
       // First list of posts.
       Child: [
+
         {
-          backgroundImage: require("../../images/content-management/1.jpeg"),
-          school: "LB Koutaba",
+          avatar: require("../../images/content-management/1.jpeg"),
+          etablissement: "LB Koutaba",
           description: "travailleur",
           categoryTheme: "dark",
-          first_name: "Tchatseu",
-          last_name: "Frank",
-          phone: "696812610"
+          firstName: "Tchatseu",
+          lastName: "Frank",
+          phone: "696812610",
+          schoolBoard: "",
+          description: "",
+          level: "Niveau 1",
+
+
+
         },
         {
-          backgroundImage: require("../../images/content-management/2.jpeg"),
-          school: "Business",
+          avatar: require("../../images/content-management/2.jpeg"),
+          etablissement: "Business",
           categoryTheme: "dark",
-          first_name: "Descartes",
-          last_name: "Factory",
-          phone: "696812610"
+          firstName: "Descartes",
+          lastName: "Factory",
+          phone: "696812610",
+          schoolBoard: "",
+          description: "",
+          level: "Niveau 1",
+
         },
         {
-          backgroundImage: require("../../images/content-management/3.jpeg"),
-          school: "LB Dschang",
+          avatar: require("../../images/content-management/3.jpeg"),
+          etablissement: "LB Dschang",
           categoryTheme: "dark",
-          first_name: "Franka",
-          last_name: "Junior",
-          phone: "696812610"
+          firstName: "Franka",
+          lastName: "Junior",
+          phone: "696812610",
+          schoolBoard: "Lb",
         },
         {
-          backgroundImage: require("../../images/content-management/4.jpeg"),
-          school: "L Classique",
+          avatar: require("../../images/content-management/4.jpeg"),
+          etablissement: "L Classique",
           description: "travailleur",
           categoryTheme: "dark",
-          first_name: "Warren",
-          last_name: "Wawa",
-          phone: "696812610"
+          firstName: "Warren",
+          lastName: "Wawa",
+          phone: "696812610",
+          schoolBoard: "",
+          description: "",
+          level: "Niveau 1",
+
         },
         {
-          backgroundImage: require("../../images/content-management/3.jpeg"),
-          school: "LB Dschang",
+          avatar: require("../../images/content-management/3.jpeg"),
+          etablissement: "LB Dschang",
           categoryTheme: "dark",
-          first_name: "Franka",
-          last_name: "Junior",
-          phone: "696812610"
+          firstName: "Franka",
+          lastName: "Junior",
+          phone: "696812610",
+          schoolBoard: "",
+          description: "",
+          level: "Niveau 1",
+
         },
         {
-          backgroundImage: require("../../images/content-management/4.jpeg"),
-          school: "L Classique",
+          avatar: require("../../images/content-management/4.jpeg"),
+          etablissement: "L Classique",
           description: "travailleur",
           categoryTheme: "dark",
-          first_name: "Warren",
-          last_name: "Wawa",
-          phone: "696812610"
+          firstName: "Warren",
+          lastName: "Wawa",
+          phone: "696812610",
+          schoolBoard: "",
+          description: "",
+          level: "Niveau 1",
+
         },
       ],
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     axios.get('http:8080//localhost/api/childreen').then(
       (res) => {
         console.log(res);
-        this.setState({Child : this.res.data})
+        this.setState({ Child: this.res.data })
       }
     ).catch(
       (err) => {
@@ -91,8 +116,10 @@ class ChildList extends React.Component {
       }
     )
   }
-  click = (e) => {
-    console.log("ckikcicii")
+  toChildUpdate = (childItem) => {
+    this.props.history.push('/child-update', {
+      child: childItem
+    })
   }
 
   render() {
@@ -113,11 +140,11 @@ class ChildList extends React.Component {
         {/* First Row of Posts */}
         <Row>
           <Col lg="3" md="6" sm="12" className="mb-4" ds>
-            <NavLink tag={RouteNavLink} to="/child-add">
-              <Card onClick={this.click} small className="card-post card-post--1">
+            <NavLink tag={RouteNavLink} to='/child-add'>
+              <Card small className="card-post card-post--1">
                 <div
                   className="card-post__image"
-                  style={{ backgroundImage: `url(${this.state.backgroundImageAdd})` }}
+                  style={{ backgroundImage: `url(${this.state.avatarAdd})` }}
                 >
                 </div>
                 <CardBody>
@@ -137,23 +164,23 @@ class ChildList extends React.Component {
         <Row>
           {Child.map((post, idx) => (
             <Col lg="3" md="6" sm="12" className="mb-4" key={idx}>
-              <NavLink tag={RouteNavLink} to="/child-update">
-                <Card onClick={this.click} small className="card-post card-post--1">
+              <NavLink className="cursor" >
+                <Card onClick={() => this.toChildUpdate(post)} small className="card-post card-post--1">
                   <div
                     className="card-post__image"
-                    style={{ backgroundImage: `url(${post.backgroundImage})` }}
+                    style={{ backgroundImage: `url(${post.avatar})` }}
                   >
                     <Badge
                       pill
                       className={`card-post__category bg-${post.categoryTheme}`}
                     >
-                      {post.school}
+                      {post.etablissement}
                     </Badge>
                   </div>
                   <CardBody>
                     <h5 className="card-title">
                       <a href="#" className="text-fiord-blue">
-                        {post.first_name} {post.last_name}
+                        {post.firstName} {post.lastName}
                       </a>
                     </h5>
                     <span className="text-muted">{post.phone}</span>

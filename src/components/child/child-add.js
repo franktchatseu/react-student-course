@@ -10,6 +10,9 @@ import AddChildForm from "../user-profile-lite/addChildForm";
 import axios from "axios";
 class AddChild extends React.Component {
 
+  constructor(props){
+    super(props)
+  }
   state = {
     activeAdd: true,
     user: {
@@ -44,7 +47,7 @@ class AddChild extends React.Component {
     }
     console.log(childreen)
     this.clearField();
-    axios.post('http:8080//localhost/api/childreen',{childreen}).then(
+    axios.post('http:8080//localhost/api/childreen', { childreen }).then(
       (res) => {
         console.log(res);
       }

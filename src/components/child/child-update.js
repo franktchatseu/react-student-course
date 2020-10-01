@@ -10,18 +10,14 @@ import axios from "axios";
 
 class ChildUpdate extends React.Component {
 
+  constructor(props){
+    super(props)
+    console.log(props)
+  }
   state = {
     activeAdd: true,
     user: {
-      firstName: "",
-      lastName: "",
-      level: "",
-      avatar: require("./../../images/avatars/0.jpg"),
-      etablissement: "",
-      schoolBoard: "",
-      email: "",
-      phone: "",
-      description: "",
+      info: this.props.location.state.child,
       historyReservation: [
         {
           date: new Date(),
@@ -84,7 +80,7 @@ class ChildUpdate extends React.Component {
     }
     console.log(childreen)
     this.clearField();
-    axios.post('http:8080//localhost/api/childreen',{childreen}).then(
+    axios.post('http:8080//localhost/api/childreen/1',{childreen}).then(
       (res) => {
         console.log(res);
       }
@@ -93,9 +89,14 @@ class ChildUpdate extends React.Component {
         console.log(err);
       }
     )
-   
+    this.backTochildList()
+  
   }
-
+  backTochildList(){
+    this.props.history.push('/childs', {
+      child: null
+    })
+  }
   clearField() {
     this.setState(prevState => ({
       ...prevState, user: {
@@ -117,7 +118,7 @@ class ChildUpdate extends React.Component {
   onChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState(prevState => ({ ...prevState, user: { ...prevState.user, [name]: value } }))
+    this.setState(prevState => ({ ...prevState, user: { ...prevState.user, info: { ...prevState.user.info, [name]: value } } }))
   }
   toogleActive = () => {
     this.setState(prevState => ({ ...prevState, activeAdd: !prevState.activeAdd }))
@@ -130,11 +131,11 @@ class ChildUpdate extends React.Component {
         </Row>
         <Row>
           <Col lg="4">
-            <UserDetails userDetails={this.state.user} active={this.state.activeAdd} ontoogle={this.toogleActive} />
+            <UserDetails userDetails={this.state.user.info} active={this.state.activeAdd} ontoogle={this.toogleActive} />
           </Col>
           {
             this.state.activeAdd ? (<Col lg="8">
-              <UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} />
+              <UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />
             </Col>) :
               <Reservations userDetails={this.state.user} />
           }
