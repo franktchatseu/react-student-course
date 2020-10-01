@@ -4,6 +4,9 @@ import React from "react";
 import { NavLink as RouteNavLink, Route } from "react-router-dom";
 import { NavItem, NavLink } from "shards-react";
 import "./child.css"
+import { useTranslation } from 'react-i18next';
+
+
 import {
   Container,
   Row,
@@ -21,7 +24,7 @@ import axios from "axios";
 class ChildList extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props)
     this.state = {
       avatarAdd: require("../../images/content-management/3.jpeg"),
       // First list of posts.
@@ -123,6 +126,7 @@ class ChildList extends React.Component {
   }
 
   render() {
+
     const {
       Child,
       PostsListTwo,
@@ -138,28 +142,7 @@ class ChildList extends React.Component {
         </Row>
 
         {/* First Row of Posts */}
-        <Row>
-          <Col lg="3" md="6" sm="12" className="mb-4" ds>
-            <NavLink tag={RouteNavLink} to='/child-add'>
-              <Card small className="card-post card-post--1">
-                <div
-                  className="card-post__image"
-                  style={{ backgroundImage: `url(${this.state.avatarAdd})` }}
-                >
-                </div>
-                <CardBody>
-                  <h5 className="card-title">
-                    <a href="#" className="text-fiord-blue">
-                      Ajouter un Enfant
-                      </a>
-                  </h5>
-
-                </CardBody>
-              </Card>
-            </NavLink>
-
-          </Col>
-        </Row>
+        <AddButton avatarAdd={this.state.avatarAdd} />
 
         <Row>
           {Child.map((post, idx) => (
@@ -195,5 +178,36 @@ class ChildList extends React.Component {
     );
   }
 }
+
+const AddButton = ({ avatarAdd }) => {
+  const { t } = useTranslation();
+
+  return (
+
+    <Row>
+      <Col lg="3" md="6" sm="12" className="mb-4" ds>
+        <NavLink tag={RouteNavLink} to='/child-add'>
+          <Card small className="card-post card-post--1">
+            <div
+              className="card-post__image"
+              style={{ backgroundImage: `url(${avatarAdd})` }}
+            >
+            </div>
+            <CardBody>
+              <h5 className="card-title">
+                <a href="#" className="text-fiord-blue">
+                  {t('buttonChildAdd', 'Hello there')}
+                </a>
+
+              </h5>
+
+            </CardBody>
+          </Card>
+        </NavLink>
+
+      </Col>
+    </Row>
+  );
+};
 
 export default ChildList;

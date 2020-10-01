@@ -8,6 +8,7 @@ import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
 import { ModalCustom } from "reactstrap";
 
 export default () => (
+  
   <Router basename={process.env.REACT_APP_BASENAME || ""}>
     <div>
       {routes.map((route, index) => {
