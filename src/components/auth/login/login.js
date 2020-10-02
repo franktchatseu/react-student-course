@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink as RouteNavLink } from "react-router-dom";
 import "./fontawesome-all.css";
 import "./style.css";
 import axios from "axios";
@@ -69,7 +69,7 @@ export default class LoginForm extends React.Component {
             <a href="#">Forgot Password?</a>
             <p><input type="checkbox" />Remember Me</p>
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" tag={RouteNavLink} to="/">Login</button>
         </form>
         <p class=" w3l-register-p">Don't have an account?<a href="#" class="register"> Register</a></p>
       </div>

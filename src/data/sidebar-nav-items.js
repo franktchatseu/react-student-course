@@ -16,8 +16,8 @@ export default function() {
       htmlBefore: '<i class="material-icons">table_chart</i>',
       to: "/reserver",
     }, {
-      title: "Blog Dashboard",
-      to: "/blog-overview",
+      title: "Enseignants",
+      to: "/teachers",
       htmlBefore: '<i class="material-icons">edit</i>',
       htmlAfter: ""
     },

@@ -43,7 +43,7 @@ const Discussions = ({ title, discussions, userDetails }) => (
       <Row>
         <Col className="text-center view-report">
           <Button theme="white" type="submit">
-            View All Comments
+            View All Reservations
           </Button>
         </Col>
       </Row>

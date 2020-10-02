@@ -16,6 +16,7 @@ import ChildAdd from "./components/child/child-add"
 import ChildUpdate from "./components/child/child-update"
 
 import Reserver from "./components/reserver/reserver"
+import TeacherList from "./components/teacher/teacher-list"
 
 
 
@@ -80,6 +81,11 @@ export default [
     path: "/reserver",
     layout: DefaultLayout,
     component: Reserver
-  }
+  },
+  {
+    path: "/teachers",
+    layout: DefaultLayout,
+    component: TeacherList
+  },
   
 ];
