@@ -46,3 +46,6 @@
 .modal-container.modal-container-active {
   display: block;
 }
+.cursor{
+  cursor: pointer;
+}

@@ -40,7 +40,7 @@ class TeacherList extends React.Component {
           phone: "696812610",
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
-          level: "Niveau 1",
+          level: "Niveau 5",
 
 
 
@@ -65,6 +65,8 @@ class TeacherList extends React.Component {
           lastName: "Junior",
           phone: "696812610",
           schoolBoard: "Lb",
+          description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
+          level: "Niveau 4 & 6",
         },
         {
           avatar: require("../../images/content-management/4.jpeg"),
@@ -76,7 +78,7 @@ class TeacherList extends React.Component {
           phone: "696812610",
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
-          level: "Niveau 1",
+          level: "Niveau 2",
 
         },
         {
@@ -88,7 +90,7 @@ class TeacherList extends React.Component {
           phone: "696812610",
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
-          level: "Niveau 1",
+          level: "Niveau 4 & 5",
 
         },
         {

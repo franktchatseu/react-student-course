@@ -23,7 +23,7 @@ const UserDetails = ({ teacherDetails }) => (
       <h4 className="mb-0">{teacherDetails.lastName} {teacherDetails.firstName}</h4>
       <span className="text-muted d-block mb-2">{teacherDetails.jobTitle}</span>
       <Button pill outline size="sm" className="mb-2">
-        <i className="material-icons mr-1">person_add</i> Follow
+        <i className="material-icons mr-1">person_add</i> {teacherDetails.level}
       </Button>
     </CardHeader>
     <ListGroup flush>
