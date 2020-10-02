@@ -30,8 +30,8 @@ export default class ModalCustom extends React.Component {
         const coverClass = this.state.modalOpened ? 'modal-cover modal-cover-active' : 'modal-cover'
         const containerClass = this.state.modalOpened ? 'modal-container modal-container-active' : 'modal-container'
         return (
-            <div>
-                <Col lg="12" onClick={this.modalToggle}>
+            <Col lg="4">
+                <Col  onClick={this.modalToggle}>
                         <Card small className="card-post mb-4">
                             <CardBody>
                                 <div
@@ -64,7 +64,7 @@ export default class ModalCustom extends React.Component {
                 </div>
 
                 <div className={coverClass} onClick={this.modalToggle}></div>
-            </div>
+            </Col>
         )
     }
 }

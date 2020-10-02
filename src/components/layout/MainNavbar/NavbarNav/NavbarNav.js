@@ -6,7 +6,7 @@ import UserActions from "./UserActions";
 import NavLang from "./NavLang";
 
 export default () => (
-  <Nav navbar className="border-left flex-row">
+  <Nav navbar className="border-left flex-row" >
     <Notifications />
     <UserActions />
     <NavLang />
