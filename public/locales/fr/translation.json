@@ -20,5 +20,8 @@
     "SchoolBoardLabel": "Conseil Scolaire",
     "PhoneLabel": "Telephone",
     "SaveLabel": "Enregistrer"
+  },
+  "User":{
+    "EmailLabel":"Email"
   }
 }

@@ -17,7 +17,7 @@ import ChildUpdate from "./components/child/child-update"
 import Reserver from "./components/reserver/reserver"
 import TeacherList from "./components/teacher/teacher-list"
 import About from "./components/about-us/about-us";
-
+import UserProfile from "./components/user/user-profile";
 
 
 export default [
@@ -91,5 +91,11 @@ export default [
     path: "/about-us",
     layout: DefaultLayout,
     component: About
+  },
+  {
+    path: "/user-profile",
+    layout: DefaultLayout,
+    component: UserProfile
+
   },
 ];

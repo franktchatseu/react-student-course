@@ -1,0 +1,29 @@
+
+{
+    "buttonChildAdd": "Add new Child",
+    "Language":{
+      "ChangeLanguage":"Change Language",
+      "French":"French",
+      "English":"English"
+    },
+    "Child":{
+
+      "ChildList":"My Children",
+      "ChildAdd": "Add a Child",
+      "ChildUpdate":"Edit a Child",
+      "Update": "Modify",
+      "HistoryReservation": "Booking history",
+      "ChildForm":"Form",
+      "FirstNameLabel":"Last Name",
+      "LastNameLabel": "First Name",
+      "LevelLabel": "Niveau Etude",
+      "SchoolLabel": "Establishment",
+      "SchoolBoardLabel": "School Council",
+      "PhoneLabel": "Phone",
+      "SaveLabel": "Register"
+    },
+  "User":{
+    "EmailLabel":"Email"
+  }
+   
+}
