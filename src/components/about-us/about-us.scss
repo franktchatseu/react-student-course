@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+$gutter: 10px;
+$padding: 10px;
+$margin: 10px;
+$dot-color: #881;
+$dot-selected-color: darken(#888, 30);
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 100vh;
+	font-family: 'Ubuntu', sans-serif;
+	line-height: 1.5em;
+}
+.content-about{
+	background-color:white;
+	.title{
+		margin-left: 40%;
+		font-weight: bold;
+		font-size: xx-large;
+		padding: $padding * 2;
+		color: gray;
+		
+
+	}
+	.description{
+		
+		padding: $padding * 5;
+		align-content: center;
+		text-align: justify;
+		font-size: large;
+	}
+	.container-slider {
+
+		display: inline-grid;
+		grid-gap: $gutter;
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 520px;
+		
+		grid-auto-flow: column;
+		align-content: center;
+		align-items: center;
+		width: 100%;
+		height: 50%;
+		@media all and (min-width: 1000px) {
+			width: 80%;
+			padding-bottom: $padding;
+		}
+		
+		.text-section {
+			padding: $padding * 5;
+			display: none;
+			h1{
+				color: $dot-selected-color;
+			}
+			@media all and (min-width: 1000px) {
+				display: block;
+			}
+		}
+		
+		.image-section {
+			width: 70%;
+			height: 70%;
+			
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+	}
+}
+
+
+.slider {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	margin: 0 $margin;
+	
+	#{&}-content {
+		display: flex;
+		position: relative;
+		transition: all 2s ease-out;
+		align-items: stretch;
+	}
+
+	#{&}-slide {
+		flex-shrink: 0;
+		width: 100%;
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 1fr;
+	}
+
+	#{&}-item {
+		flex-grow: 1;
+		display: flex;
+		flex-shrink: 0;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#{&}-dots {
+		position: relative;
+		display: flex;
+		justify-content: center;
+	}
+
+	#{&}-dot {
+		width: 13px;
+		height: 13px;
+		background: $dot-color;
+		border-radius: 50%;
+		margin: $margin;
+		transition: all 0.15s ease;
+		cursor: pointer;
+		
+		&.selected {
+			background: $dot-selected-color;
+		}
+		
+		&:hover {
+			box-shadow: 0 0 0 3px $dot-selected-color;
+		}
+	}
+}

@@ -8,6 +8,7 @@ import { render } from "react-dom";
 import Reservations from "./Reservation";
 import axios from "axios";
 import Activity from "../reserver/activity"
+import Reserver from "../reserver/reserver";
 class ChildUpdate extends React.Component {
 
   constructor(props){
@@ -137,7 +138,7 @@ class ChildUpdate extends React.Component {
             this.state.activeAdd ? (<Col lg="8">
               <UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />
             </Col>) :
-              <Activity  />
+              <Reservations userDetails={this.state.user}  />
           }
 
         </Row>

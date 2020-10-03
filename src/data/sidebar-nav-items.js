@@ -15,11 +15,17 @@ export default function() {
       title: "Reservation",
       htmlBefore: '<i class="material-icons">table_chart</i>',
       to: "/reserver",
-    }, {
+    }, 
+    {
       title: "Enseignants",
       to: "/teachers",
       htmlBefore: '<i class="material-icons">edit</i>',
       htmlAfter: ""
+    },
+    {
+      title: "About Us",
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: "/about-us",
     },
     {
       title: "Blog Posts",

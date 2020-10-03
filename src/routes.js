@@ -14,9 +14,9 @@ import BlogPosts from "./views/BlogPosts";
 import ChildList from "./components/child/child-list"
 import ChildAdd from "./components/child/child-add"
 import ChildUpdate from "./components/child/child-update"
-
 import Reserver from "./components/reserver/reserver"
 import TeacherList from "./components/teacher/teacher-list"
+import About from "./components/about-us/about-us";
 
 
 
@@ -87,5 +87,9 @@ export default [
     layout: DefaultLayout,
     component: TeacherList
   },
-  
+  {
+    path: "/about-us",
+    layout: DefaultLayout,
+    component: About
+  },
 ];
