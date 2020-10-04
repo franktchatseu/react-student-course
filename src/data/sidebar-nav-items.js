@@ -28,6 +28,11 @@ export default function() {
       to: "/about-us",
     },
     {
+      title: "Forms & Components",
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: "/components-overview",
+    },
+   /* {
       title: "Blog Posts",
       htmlBefore: '<i class="material-icons">vertical_split</i>',
       to: "/blog-posts",
@@ -56,7 +61,7 @@ export default function() {
       title: "Errors",
       htmlBefore: '<i class="material-icons">error</i>',
       to: "/errors",
-    },
+    },*/
  
     
   ];

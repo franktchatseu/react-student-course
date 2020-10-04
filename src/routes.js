@@ -18,7 +18,7 @@ import Reserver from "./components/reserver/reserver"
 import TeacherList from "./components/teacher/teacher-list"
 import About from "./components/about-us/about-us";
 import UserProfile from "./components/user/user-profile";
-
+import Activity from "./components/reserver/activity";
 
 export default [
   {
@@ -96,6 +96,12 @@ export default [
     path: "/user-profile",
     layout: DefaultLayout,
     component: UserProfile
+
+  },
+  {
+    path: "/activity",
+    layout: DefaultLayout,
+    component: Activity
 
   },
 ];

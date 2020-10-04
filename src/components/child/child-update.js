@@ -131,15 +131,19 @@ class ChildUpdate extends React.Component {
           <PageTitle title="Modifier un Enfant" subtitle="Overview" md="12" className="ml-sm-auto mr-sm-auto" />
         </Row>
         <Row>
+        <Col lg="1">
+          </Col>
           <Col lg="4">
             <UserDetails userDetails={this.state.user.info} active={this.state.activeAdd} ontoogle={this.toogleActive} />
           </Col>
-          {
-            this.state.activeAdd ? (<Col lg="8">
-              <UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />
-            </Col>) :
-              <Reservations userDetails={this.state.user}  />
-          }
+          
+            <Col lg="6">
+            { this.state.activeAdd ? (<UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />):
+               <Activity/>
+            }
+          </Col> 
+          <Col lg="1">
+          </Col>
 
         </Row>
       </Container>

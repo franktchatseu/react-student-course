@@ -1,14 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "shards-react";
-
 import PageTitle from "../common/PageTitle";
 import UserDetails from "./UserDetails";
 import UserAccountDetails from "./UserAccountDetails";
-import { render } from "react-dom";
-import Reservations from "../child/Reservation";
 import axios from "axios";
-import Activity from "../reserver/activity"
-import Reserver from "../reserver/reserver";
+
 class UserProfile extends React.Component {
 
     constructor(props) {

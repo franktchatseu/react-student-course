@@ -1,10 +1,8 @@
 import React from "react";
-import { NavLink as RouteNavLink } from "react-router-dom";
-import "./fontawesome-all.css";
-import "./style.css";
 import axios from "axios";
+import "./style.css"
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
 
   constructor(props) {
     super(props)
@@ -31,10 +29,8 @@ export default class LoginForm extends React.Component {
       (resp) => {
         console.log(resp)
         localStorage.setItem("token", resp.data.access_token)
-        localStorage.setItem("user",JSON.stringify(resp.data.user) )
-        
-        console.log( this.props)
-    
+        localStorage.setItem("user", JSON.stringify(resp.data.user))
+        console.log(this.props)
       }
     ).catch(
       (err) => {
@@ -47,83 +43,43 @@ export default class LoginForm extends React.Component {
 
   render() {
     return (
-      <div class=" w3l-login-form">
-        <h2>Login Here</h2>
-        <form onSubmit={this.onSubmit}>
-
-          <div class=" w3l-form-group">
-            <label>Email:</label>
-            <div class="group">
-              <i class="fas fa-user"></i>
-              <input type="email" name="email" onChange={this.onChange} class="form-control" placeholder="email" required="required" />
-            </div>
+      <div class="auth-form mx-auto my-auto col-md-5 col-lg-3">
+        <div className="card">
+          <div class="card-body">
+            <img class="auth-form__logo d-table mx-auto mb-3" src="./static/media/shards-dashboards-logo.60a85991.svg" alt="Shards Dashboards - Login Template" /><h5 class="auth-form__title text-center mb-4">Access Your Account</h5>
+            <form onSubmit={this.onSubmit} action="/child">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" id="exampleInputEmail1" placeholder="Enter email"
+                  autocomplete="email" class="form-control"
+                  value={this.state.email}
+                  name="email"
+                  onChange={this.onChange} />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" id="exampleInputPassword1" placeholder="Password"
+                  autocomplete="current-password" class="form-control"
+                  value={this.state.password}
+                  name="password"
+                  onChange={this.onChange} />
+              </div>
+              <div class="form-group" >
+                <label class="custom-control custom-checkbox">
+                  <input id="dr-checkbox-hGvPOJZZX" type="checkbox" class="custom-control-input" />
+                  <label id="dr-checkbox-hGvPOJZZX" class="custom-control-label" aria-hidden="true"></label>
+                  <span class="custom-control-description">Remember me for 30 days.</span>
+                </label>
+              </div>
+              <button type="submit" class="d-table mx-auto btn btn-accent btn-pill">Access Account</button>
+            </form>
           </div>
-          <div class=" w3l-form-group">
-            <label>Password:</label>
-            <div class="group">
-              <i class="fas fa-unlock"></i>
-              <input type="password" name="password" onChange={this.onChange} class="form-control" placeholder="Password" required="required" />
-            </div>
+          <div class="card-footer">
           </div>
-          <div class="forgot">
-            <a href="#">Forgot Password?</a>
-            <p><input type="checkbox" />Remember Me</p>
-          </div>
-          <button type="submit" tag={RouteNavLink} to="/">Login</button>
-        </form>
-        <p class=" w3l-register-p">Don't have an account?<a href="#" class="register"> Register</a></p>
+        </div>
       </div>
-
     )
   }
 }
 
-const FormHeader = props => (
-  <h2 id="headerTitle">{props.title}</h2>
-);
-
-
-const Form = props => (
-  <div>
-    <FormInput description="Username" placeholder="Enter your username" type="text" />
-    <FormInput description="Password" placeholder="Enter your password" type="password" />
-    <FormButton title="Log in" />
-  </div>
-);
-
-const FormButton = props => (
-  <div id="button" class="row">
-    <button>{props.title}</button>
-  </div>
-);
-
-const FormInput = props => (
-  <div class="row">
-    <label>{props.description}</label>
-    <input type={props.type} placeholder={props.placeholder} />
-  </div>
-);
-
-const OtherMethods = props => (
-  <div id="alternativeLogin">
-    <label>Or sign in with:</label>
-    <div id="iconGroup">
-      <Facebook />
-      <Twitter />
-      <Google />
-    </div>
-  </div>
-);
-
-const Facebook = props => (
-  <a href="#" id="facebookIcon"></a>
-);
-
-const Twitter = props => (
-  <a href="#" id="twitterIcon"></a>
-);
-
-const Google = props => (
-  <a href="#" id="googleIcon"></a>
-);
-
+export default LoginForm;

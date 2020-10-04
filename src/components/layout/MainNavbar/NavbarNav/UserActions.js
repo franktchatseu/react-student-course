@@ -50,10 +50,7 @@ export default class UserActions extends React.Component {
             <i className="material-icons">&#xE7FD;</i> Profile
           </DropdownItem>
           <DropdownItem tag={RouteNavLink} to="edit-user-profile">
-            <i className="material-icons">&#xE8B8;</i> Edit Profile
-          </DropdownItem>
-          <DropdownItem tag={RouteNavLink} to="edit-user-profile">
-            <i className="material-icons">&#xE8B8;</i> Change Profile
+            <i className="material-icons">&#xE8B8;</i> Change Account
           </DropdownItem>
           <DropdownItem divider />
           <DropdownItem onClick={this.logout}  href="/child-add" className="text-danger">
