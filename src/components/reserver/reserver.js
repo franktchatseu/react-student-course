@@ -21,7 +21,7 @@ const Reserver = () => (
             </CardHeader>
             <CardBody className="p-0 pb-3">
               <table className="table mb-0">
-                <thead className="bg-light">
+                <thead className="bg-light ">
                   <tr>
                     <th scope="col" className="border-0">
                       #

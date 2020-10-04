@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Dropdown,
   DropdownToggle,
@@ -10,7 +9,6 @@ import {
   NavLink
 } from "shards-react";
 import { useTranslation } from 'react-i18next';
-
 
 export default class UserActions extends React.Component {
   constructor(props) {
@@ -43,7 +41,7 @@ const Lang = ({ visible,toggleUserActions }) => {
   };
   return (
     <NavItem tag={Dropdown} caret toggle={toggleUserActions}>
-    <DropdownToggle caret tag={NavLink} className="text-nowrap px-3">
+    <DropdownToggle caret tag={NavLink} className="cursor px-3">
       <img
         className="user-avatar rounded-circle mr-2"
         src={require("./../../../../images/flag/french-english-flag.jpeg")}
