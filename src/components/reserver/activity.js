@@ -1,119 +1,112 @@
 
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
 import "./activity.css"
 import {
-  
+
   Button,
   Col,
   Card,
   CardHeader
-  
+
 } from "shards-react";
 
 
 
 
-var ProductRow = ({product}) =>{
-    var name = <td style={{background:'#F5FFFA'}}>{product.name}</td>;
-    return (
-      <tr>
-        {name}
-        <td>{product.price}</td>
-      </tr>
-    );
+var ProductRow = ({ product }) => {
+  var hour = <td className="td-custum" style={{ background: '#F5FFFA' }}>{product.hour}</td>;
+  return (
+    <tr>
+      {hour}
+      <td className="td-custum">{product.course}</td>
+    </tr>
+  );
 }
 
-var ProductCategory = ({category}) =>{
-  return <tr className="category"><td colSpan="2">{category}</td></tr>
+var ProductCategory = ({ category }) => {
+  return <tr className="category"><td className="td-custum" colSpan="2">{category}</td></tr>
 }
 
-var ProductTable = ({checkVal,products,searchVal}) =>{
+var ProductTable = ({ checkVal, products, searchVal }) => {
   var rows = [];
   var category = '';
-  products.forEach(function(product) {
-    if(product.name.toLowerCase().indexOf(searchVal.toLowerCase()) == -1 || (checkVal && !product.stocked)) return;
-    if(product.category !== category) {
-      rows.push(<ProductCategory category={product.category} key={product.category}/>);
-      category = product.category;
+  products.forEach(function (product) {
+    if (product.hour.toLowerCase().indexOf(searchVal.toLowerCase()) == -1 || product.course.toLowerCase().indexOf(searchVal.toLowerCase()) == -1 || product.date.toLowerCase().indexOf(searchVal.toLowerCase()) == -1) return;
+    if (product.date !== category) {
+      rows.push(<ProductCategory category={product.date} key={product.date} />);
+      category = product.date;
     }
-    rows.push(<ProductRow product={product} key={product.name}/>);
-    
+    rows.push(<ProductRow product={product} key={product.hour} />);
+
   }.bind(this));
   return (
     <table className="table">
-    <thead>
-    </thead>
-    <tbody>{rows}</tbody>
-  </table>
+      <thead>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
   );
 }
-
-var Search = ({onInput,checkVal,searchVal,product}) =>{
-  
- 
-  return (
-    <div>
-        <input className="search" type="text" placeholder="Search..."  value={searchVal}/>
-        <p>
-          <input className="stock" type="checkbox" checked={checkVal} />
-          {' '}
-          <span style={{color: '#FFF'}}>Only show products in stock</span>
-        </p>
-      </div>
-  );
-}
-
-class Table extends React.Component{
-
-  constructor(props){
+class Search extends React.Component {
+  constructor(props) {
     super(props)
-    this.state={
+  }
+  handleChange() {
+    this.props.onInput(this.refs.search.value)
+  }
+  render() {
+    return (
+      <div className="search">
+        <input className=" form-control " size="10" type="text" ref="search" placeholder="rechercher..." onChange={this.handleChange.bind(this)} value={this.props.searchVal} />
+      </div>
+    )
+  }
+}
+
+
+class Table extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
       search: '',
       stockIn: false
     }
   }
-  handleInput =(search, stock)=>{
+  handleInput = (search) => {
     this.setState({
       search: search,
-      stockIn: stock
     })
   }
-  render(){
+  render() {
     return <div>
-      <ProductTable searchVal={this.state.search} checkVal={this.state.stockIn} products={PRODUCTS}/>
+      <Search searchVal={this.state.search} checkVal={this.state.stockIn} onInput={this.handleInput} />
+      <ProductTable searchVal={this.state.search} checkVal={this.state.stockIn} products={this.props.products} />
       <Col className="text-center view-report">
-          <Button  pill outline size="sm" className="mb-2">
+        <Button pill outline size="sm" className="mb-2">
           <i className="material-icons mr-1">person_add</i>  Suivant
         </Button>
-        </Col>
+      </Col>
     </div>
   }
 }
 
 
-
-var PRODUCTS = [
-  {category: 'lundi 22 juin 2020', name: '10:00', stocked: true, price: 'Maths 10, Lucas'},
-  {category: 'lundi 22 juin 2020', name: '12:30', stocked: true, price: 'English, Descartes'},
-  {category: 'lundi 22 juin 2020', name: '16:00', stocked: false, price: 'French 22, Franka '},
-  {category: 'jeudi 10 juillet 2020', name: '20:00', stocked: true, price: 'English, Touch'},
-  {category: 'jeudi 10 juillet 2020', name: '21:00', stocked: false, price: 'Goegra 5, Warren'},
-  {category: 'jeudi 10 juillet 2020', name: '22:00', stocked: true, price: 'Ec 7, Tchatseu'}
-];
-export default class Activity extends React.Component{
-  constructor(props){
+export default class Activity extends React.Component {
+  constructor(props) {
     super(props)
   }
-  render(){
+  render() {
     return (
       <div className="table-container">
         <Card small className="mb-4 pt-3">
-      <CardHeader className="border-bottom text-center">
-      <h6 className="m-0">Historique de Reservation</h6>
-      </CardHeader>
-      <Table products={PRODUCTS}/>
-    </Card>
-              
+          <CardHeader className="border-bottom text-center">
+            <h6 className="m-0">Historique de Reservation</h6>
+          </CardHeader>
+
+          <Table products={this.props.historyReservation} />
+        </Card>
+
       </div>
     )
   }

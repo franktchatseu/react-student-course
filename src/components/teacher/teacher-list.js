@@ -41,9 +41,14 @@ class TeacherList extends React.Component {
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
           level: "Niveau 5",
-
-
-
+          courses:[
+            {course: "Francais"},
+            {course: "Anglais"},
+            {course: "Histoire"},
+            {course: "Maths"},
+            {course: "Geo"},
+            
+          ]
         },
         {
           avatar: require("../../images/content-management/2.jpeg"),
@@ -55,7 +60,14 @@ class TeacherList extends React.Component {
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
           level: "Niveau 1",
-
+          courses:[
+            {course: "Francais"},
+            {course: "Anglais"},
+            {course: "Histoire"},
+            {course: "Maths"},
+            {course: "Geo"},
+            
+          ]
         },
         {
           avatar: require("../../images/content-management/3.jpeg"),
@@ -67,6 +79,14 @@ class TeacherList extends React.Component {
           schoolBoard: "Lb",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
           level: "Niveau 4 & 6",
+          courses:[
+            {course: "Francais"},
+            {course: "Anglais"},
+            {course: "Histoire"},
+            {course: "Maths"},
+            {course: "Geo"},
+            
+          ]
         },
         {
           avatar: require("../../images/content-management/4.jpeg"),
@@ -79,7 +99,14 @@ class TeacherList extends React.Component {
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
           level: "Niveau 2",
-
+          courses:[
+            {course: "Francais"},
+            {course: "Anglais"},
+            {course: "Histoire"},
+            {course: "Maths"},
+            {course: "Geo"},
+            
+          ]
         },
         {
           avatar: require("../../images/content-management/3.jpeg"),
@@ -91,7 +118,14 @@ class TeacherList extends React.Component {
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
           level: "Niveau 4 & 5",
-
+          courses:[
+            {course: "Francais"},
+            {course: "Anglais"},
+            {course: "Histoire"},
+            {course: "Maths"},
+            {course: "Geo"},
+            
+          ]
         },
         {
           avatar: require("../../images/content-management/4.jpeg"),
@@ -104,9 +138,17 @@ class TeacherList extends React.Component {
           schoolBoard: "",
           description: "je suis un tres bon enseignant. j'aime mon metier et je donne bien les repetition",
           level: "Niveau 1",
-
+          courses:[
+            {course: "Francais"},
+            {course: "Anglais"},
+            {course: "Histoire"},
+            {course: "Maths"},
+            {course: "Geo"},
+            
+          ]
         },
       ],
+    
     };
   }
   componentDidMount() {

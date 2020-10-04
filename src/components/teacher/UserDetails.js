@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 import {
   Card,
   CardHeader,
-  Button,
-  ListGroup,
-  ListGroupItem,
-  Progress
+  CardBody,
 } from "shards-react";
 
 const UserDetails = ({ teacherDetails }) => (
   <Card small className="mb-4 pt-3">
     <CardHeader className="border-bottom text-center">
-      <div className="mb-3 mx-auto">
+      <div className="mb-3">
         <img
           className="rounded-circle"
           src={teacherDetails.avatar}
@@ -20,25 +17,27 @@ const UserDetails = ({ teacherDetails }) => (
           width="110"
         />
       </div>
-      <h4 className="mb-0">{teacherDetails.lastName} {teacherDetails.firstName}</h4>
-      <span className="text-muted d-block mb-2">{teacherDetails.jobTitle}</span>
-      <Button pill outline size="sm" className="mb-2">
-        <i className="material-icons mr-1">person_add</i> {teacherDetails.level}
-      </Button>
+      <h4 className="mt-1">{teacherDetails.lastName} {teacherDetails.firstName}</h4>
+      <span class="card-post__category bg-royal-blue badge badge-primary badge-pill"> Mes Matieres</span>
+      <div class="user-details__tags p-4">
+        {
+          teacherDetails.courses.map((course,idx)=>(
+            <span class="text-dark text-uppercase mb-2 border mr-1 badge badge-light badge-pill">{course.course}</span>
+          )
+         )
+        }
+      </div>
+      <h5 className=" d-block mb-3 ml-20">
+        Telephone: {teacherDetails.phone}
+      </h5>
+      <h5 className=" d-block mb-2 ml-20 ">
+        Description
+      </h5>
+      <span>{teacherDetails.description}</span>
     </CardHeader>
-    <ListGroup flush>
-      <ListGroupItem className="px-4">
-      <h5 className=" d-block mb-2 ml-20">
-            Telephone: {teacherDetails.phone}
-          </h5>
-      </ListGroupItem>
-      <ListGroupItem className="p-4">
-        <strong className=" d-block mb-2">
-          Description
-        </strong>
-        <span>{teacherDetails.description}</span>
-      </ListGroupItem>
-    </ListGroup>
+    <CardBody >
+    
+    </CardBody>
   </Card>
 );
 

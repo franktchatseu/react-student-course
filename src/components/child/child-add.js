@@ -32,6 +32,11 @@ class AddChild extends React.Component {
     const value = event.target.value;
     this.setState(prevState => ({ ...prevState, user: { ...prevState.user, [name]: value } }))
   }
+
+  onSelectedAvatar = (event) => {
+    console.log(event)
+    //this.setState(prevState => ({ ...prevState, user: { ...prevState.user, [name]: value } }))
+  }
   onSubmit = (event) => {
     event.preventDefault();
     const childreen = {
@@ -89,7 +94,7 @@ class AddChild extends React.Component {
           <Col lg="2">
           </Col>
           <Col lg="8">
-            <AddChildForm onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} />
+            <AddChildForm onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} onSelectedAvatar= {this.state.onSelectedAvatar} />
           </Col>
 
         </Row>

@@ -8,14 +8,11 @@ import {
   Row,
   Col,
   Form,
-  FormGroup,
   FormInput,
-  FormSelect,
-  FormTextarea,
   Button
 } from "shards-react";
 
-const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
+const AddChildForm = ({ userDetails, onchange, onSubmit, onSelectedAvatar }) => (
   <Card small className="mb-4">
     <CardHeader className="border-bottom">
       <h6 className="m-0">Formulaire</h6>
@@ -25,7 +22,18 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
         <Row>
           <Col>
             <Form onSubmit={onSubmit}>
-            <Row form>
+              <Row form>
+                {/* avatar */}
+                <Col md="12" className="form-group">
+                  <div className="custom-file mb-3">
+                    <input type="file" className="custom-file-input" id="customFile2" onChange={onSelectedAvatar} />
+                    <label className="custom-file-label" htmlFor="customFile2">
+                      Choose file...
+                    </label>
+                  </div>
+                </Col>
+              </Row>
+              <Row form>
                 {/* First Name */}
                 <Col md="6" className="form-group">
                   <label htmlFor="feFirstName">Prenom</label>
@@ -33,7 +41,7 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
                     id="FirstName"
                     placeholder="First Name"
                     value={userDetails.lastName}
-                    name = "lastName"
+                    name="lastName"
                     onChange={onchange}
                   />
                 </Col>
@@ -44,7 +52,7 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
                     id="feLastName"
                     placeholder="Last Name"
                     value={userDetails.firstName}
-                    name ="firstName"
+                    name="firstName"
                     onChange={onchange}
                   />
                 </Col>
@@ -57,7 +65,7 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
                     id="FirstName"
                     placeholder="niveau etude"
                     value={userDetails.level}
-                    name = "level"
+                    name="level"
                     onChange={onchange}
                   />
                 </Col>
@@ -68,7 +76,7 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
                     id="feLastName"
                     placeholder="Last Name"
                     value={userDetails.etablissement}
-                    name ="etablissement"
+                    name="etablissement"
                     onChange={onchange}
                   />
                 </Col>
@@ -83,7 +91,7 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
                     placeholder="conseil scolaire"
                     value={userDetails.schoolBoard}
                     onChange={onchange}
-                    name ="schoolBoard"
+                    name="schoolBoard"
                     autoComplete="email"
                   />
                 </Col>
@@ -95,13 +103,13 @@ const AddChildForm = ({ userDetails,onchange,onSubmit }) => (
                     id="fePassword"
                     placeholder="Password"
                     value={userDetails.phone}
-                    name ="phone"
+                    name="phone"
                     onChange={onchange}
                     autoComplete="current-password"
                   />
                 </Col>
               </Row>
-            
+
               <Button type="submit" theme="accent">Enregistrer</Button>
             </Form>
           </Col>

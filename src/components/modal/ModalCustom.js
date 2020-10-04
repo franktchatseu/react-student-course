@@ -50,6 +50,7 @@ export default class ModalCustom extends React.Component {
                                         </span>
                                         <small className="text-muted">{this.props.post.phone}</small>
                                     </div>
+                                    
                                 </div>
                                 <div className="my-auto ml-auto">
                                     <Button size="sm" theme="white">

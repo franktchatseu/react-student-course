@@ -8,14 +8,11 @@ import {
   Row,
   Col,
   Form,
-  FormGroup,
   FormInput,
-  FormSelect,
-  FormTextarea,
   Button
 } from "shards-react";
 import { useTranslation } from 'react-i18next';
-
+import CustomFileUpload from "../components-overview/CustomFileUpload"
 
 const UserAccountDetails = ({ userDetails, onchange, onSubmit }) => {
   const { t } = useTranslation();
@@ -31,10 +28,21 @@ const UserAccountDetails = ({ userDetails, onchange, onSubmit }) => {
             <Col>
               <Form onSubmit={onSubmit}>
                 <Row form>
+                  {/* avatar */}
+                  <Col md="12" className="form-group">
+                    <div className="custom-file mb-3">
+                      <input type="file" className="custom-file-input" id="customFile2" />
+                      <label className="custom-file-label" htmlFor="customFile2">
+                        Choose file...
+                    </label>
+                    </div>
+                  </Col>
+                </Row>
+                <Row form>
                   {/* First Name */}
                   <Col md="6" className="form-group">
                     <label htmlFor="feFirstName">{t('Child.LastNameLabel')}</label>
-                    <FormInput
+                    <CustomFileUpload
                       id="FirstName"
                       placeholder="First Name"
                       value={userDetails.lastName}
@@ -106,7 +114,6 @@ const UserAccountDetails = ({ userDetails, onchange, onSubmit }) => {
                     />
                   </Col>
                 </Row>
-
                 <Button type="submit" theme="accent">{t('Child.SaveLabel')}</Button>
               </Form>
             </Col>

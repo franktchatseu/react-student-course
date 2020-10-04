@@ -16,53 +16,17 @@ class ChildUpdate extends React.Component {
     console.log(props)
   }
   state = {
-    activeAdd: true,
+    activeAdd: false,
     user: {
       info: this.props.location.state.child,
       historyReservation: [
-        {
-          date: new Date(),
-          reservation: [
-            {
-              hour: "15h",
-              course: "francais"
-            },
-            {
-              hour: "18h",
-              course: "english"
-            },
-
-          ]
-        },
-        {
-          date: new Date(),
-          reservation: [
-            {
-              hour: "11h",
-              course: "histoire"
-            },
-            {
-              hour: "13h",
-              course: "geogra"
-            },
-
-          ]
-        },
-        {
-          date: new Date(),
-          reservation: [
-            {
-              hour: "11h",
-              course: "histoire"
-            },
-            {
-              hour: "13h",
-              course: "geogra"
-            },
-
-          ]
-        }
-      ]
+          {date: new Date().toLocaleString(), hour: '10:00', stocked: true, course: 'Maths 10, Lucas'},
+          {date: 'lundi 22 juin 2020', hour: '12:30', stocked: true, course: 'English, Descartes'},
+          {date: 'lundi 22 juin 2020', hour: '16:00', stocked: false, course: 'French 22, Franka '},
+          {date: 'jeudi 10 juillet 2020', hour: '20:00', stocked: true, course: 'English, Touch'},
+          {date: 'jeudi 15 juillet 2020', hour: '21:00', stocked: false, course: 'Goegra 5, Warren'},
+          {date: 'jeudi 10 juillet 2020', hour: '22:00', stocked: true, course: 'Ec 7, Tchatseu'}
+        ]
     }
   }
 
@@ -139,11 +103,10 @@ class ChildUpdate extends React.Component {
           
             <Col lg="6">
             { this.state.activeAdd ? (<UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />):
-               <Activity/>
+               <Activity historyReservation= {this.state.user.historyReservation} />
             }
           </Col> 
-          <Col lg="1">
-          </Col>
+       
 
         </Row>
       </Container>
