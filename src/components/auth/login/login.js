@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
         console.log(resp)
         localStorage.setItem("token", resp.data.access_token)
         localStorage.setItem("user", JSON.stringify(resp.data.user))
+        localStorage.setItem("teacher",true)
         console.log(this.props)
       }
     ).catch(
