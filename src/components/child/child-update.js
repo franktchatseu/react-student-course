@@ -29,6 +29,9 @@ class ChildUpdate extends React.Component {
         ]
     }
   }
+  onSelectedAvatar = (event) => {
+    const file = event.target.files[0];
+    this.setState(prevState => ({ ...prevState, user: { ...prevState.user, info: { ...prevState.user.info, avatar: file } } }))  }
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -102,7 +105,7 @@ class ChildUpdate extends React.Component {
           </Col>
           
             <Col lg="6">
-            { this.state.activeAdd ? (<UserAccountDetails onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />):
+            { this.state.activeAdd ? (<UserAccountDetails onSelectedAvatar={this.onSelectedAvatar} onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />):
                <Activity historyReservation= {this.state.user.historyReservation} />
             }
           </Col> 

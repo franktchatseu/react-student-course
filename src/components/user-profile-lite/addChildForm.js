@@ -26,9 +26,9 @@ const AddChildForm = ({ userDetails, onchange, onSubmit, onSelectedAvatar }) => 
                 {/* avatar */}
                 <Col md="12" className="form-group">
                   <div className="custom-file mb-3">
-                    <input type="file" className="custom-file-input" id="customFile2" onChange={onSelectedAvatar} />
+                    <input type="file" className="custom-file-input" id="customFile2" onChange={onSelectedAvatar}  />
                     <label className="custom-file-label" htmlFor="customFile2">
-                      Choose file...
+                      {!userDetails.avatar.name? "Choose file..." : userDetails.avatar.name } 
                     </label>
                   </div>
                 </Col>

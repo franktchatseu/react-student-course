@@ -10,7 +10,7 @@ import AddChildForm from "../user-profile-lite/addChildForm";
 import axios from "axios";
 class AddChild extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
   }
   state = {
@@ -34,25 +34,26 @@ class AddChild extends React.Component {
   }
 
   onSelectedAvatar = (event) => {
-    console.log(event)
-    //this.setState(prevState => ({ ...prevState, user: { ...prevState.user, [name]: value } }))
+    console.log(event.target.files[0])
+    const file = event.target.files[0];
+    this.setState(prevState => ({ ...prevState, user: { ...prevState.user, avatar: file} }))
   }
   onSubmit = (event) => {
     event.preventDefault();
-    const childreen = {
-      firstName: this.state.user.firstName,
-      lastName: this.state.user.lastName,
-      level: this.state.user.level,
-      avatar: require("./../../images/avatars/0.jpg"),
-      etablissement: this.state.user.etablissement,
-      schoolBoard: this.state.user.schoolBoard,
-      email: this.state.user.email,
-      phone: this.state.user.phone,
-      description: this.state.user.description,
-    }
-    console.log(childreen)
+    const child = new FormData();
+    child.append("firstName", this.state.user.firstName);
+    child.append("lastName", this.state.user.lastName)
+    child.append("level", this.state.user.level);
+    child.append("etablissement", this.state.user.etablissement)
+    child.append("schoolBoard", this.state.user.schoolBoard);
+    child.append("email", this.state.user.email)
+    child.append("phone", this.state.user.phone);
+    child.append("description", this.state.user.description)
+    child.append("avatar", this.state.avatar)
+
+    console.log(child)
     this.clearField();
-    axios.post('childreen', { childreen }).then(
+    axios.post('childreen', { child }).then(
       (res) => {
         console.log(res);
       }
@@ -69,7 +70,7 @@ class AddChild extends React.Component {
         firstName: "",
         lastName: "",
         level: "",
-        avatar: require("./../../images/avatars/0.jpg"),
+        avatar: "",
         etablissement: "",
         schoolBoard: "",
         email: "",
@@ -94,7 +95,7 @@ class AddChild extends React.Component {
           <Col lg="2">
           </Col>
           <Col lg="8">
-            <AddChildForm onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} onSelectedAvatar= {this.state.onSelectedAvatar} />
+            <AddChildForm onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} onSelectedAvatar={this.onSelectedAvatar} />
           </Col>
 
         </Row>
