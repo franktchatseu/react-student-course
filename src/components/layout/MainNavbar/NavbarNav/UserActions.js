@@ -31,9 +31,12 @@ export default class UserActions extends React.Component {
 
   logout = () => {
     localStorage.clear();
-
   }
 
+  
+  changeAccount = () => {
+    
+  }
   render() {
     return (
       <NavItem  tag={Dropdown} caret toggle={this.toggleUserActions}>
@@ -49,7 +52,7 @@ export default class UserActions extends React.Component {
           <DropdownItem tag={RouteNavLink} to="user-profile">
             <i className="material-icons">&#xE7FD;</i> Profile
           </DropdownItem>
-          <DropdownItem tag={RouteNavLink} to="edit-user-profile">
+          <DropdownItem onClick={this.changeAccount} >
             <i className="material-icons">&#xE8B8;</i> Change Account
           </DropdownItem>
           <DropdownItem divider />

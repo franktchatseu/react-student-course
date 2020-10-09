@@ -12,9 +12,11 @@ import {
   Button
 } from "shards-react";
 import { useTranslation } from 'react-i18next';
-import CustomFileUpload from "../components-overview/CustomFileUpload"
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import Avatar from "../avatar/avatar";
 
-const UserAccountDetails = ({ userDetails, onchange, onSubmit, onSelectedAvatar }) => {
+
+const UserAccountDetails = ({ userDetails, onchange, onSubmit, onSelectedAvatar, loading }) => {
   const { t } = useTranslation();
 
   return (
@@ -27,22 +29,16 @@ const UserAccountDetails = ({ userDetails, onchange, onSubmit, onSelectedAvatar 
           <Row>
             <Col>
               <Form onSubmit={onSubmit}>
-                <Row form>
-                  {/* avatar */}
-                  <Col md="12" className="form-group">
-                    <div className="custom-file mb-3">
-                      <input type="file" className="custom-file-input" id="customFile2" onChange={onSelectedAvatar} />
-                      <label className="custom-file-label" htmlFor="customFile2">
-                        {!userDetails.avatar.name ? "Choose file..." : userDetails.avatar.name}
-                      </label>
-                    </div>
-                  </Col>
-                </Row>
+              <Row form>
+                <Col md="12" className="form-group">
+                  <Avatar />
+                </Col>
+               </Row>
                 <Row form>
                   {/* First Name */}
                   <Col md="6" className="form-group">
                     <label htmlFor="feFirstName">{t('Child.LastNameLabel')}</label>
-                    <CustomFileUpload
+                    <FormInput
                       id="FirstName"
                       placeholder="First Name"
                       value={userDetails.lastName}
@@ -114,7 +110,7 @@ const UserAccountDetails = ({ userDetails, onchange, onSubmit, onSelectedAvatar 
                     />
                   </Col>
                 </Row>
-                <Button type="submit" theme="accent">{t('Child.SaveLabel')}</Button>
+                <Button type="submit" theme="accent">{loading ? <LoadingOutlined className="loading" /> : <PlusOutlined />} Enregistrer</Button>
               </Form>
             </Col>
           </Row>

@@ -11,8 +11,11 @@ import {
   FormInput,
   Button
 } from "shards-react";
+import Avatar from "../avatar/avatar";
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
-const AddChildForm = ({ userDetails, onchange, onSubmit, onSelectedAvatar }) => (
+
+const AddChildForm = ({ userDetails, onchange, onSubmit, onSelectedAvatar,loading }) => (
   <Card small className="mb-4">
     <CardHeader className="border-bottom">
       <h6 className="m-0">Formulaire</h6>
@@ -23,16 +26,11 @@ const AddChildForm = ({ userDetails, onchange, onSubmit, onSelectedAvatar }) => 
           <Col>
             <Form onSubmit={onSubmit}>
               <Row form>
-                {/* avatar */}
                 <Col md="12" className="form-group">
-                  <div className="custom-file mb-3">
-                    <input type="file" className="custom-file-input" id="customFile2" onChange={onSelectedAvatar}  />
-                    <label className="custom-file-label" htmlFor="customFile2">
-                      {!userDetails.avatar.name? "Choose file..." : userDetails.avatar.name } 
-                    </label>
-                  </div>
+                  <Avatar />
                 </Col>
               </Row>
+           
               <Row form>
                 {/* First Name */}
                 <Col md="6" className="form-group">
@@ -109,8 +107,7 @@ const AddChildForm = ({ userDetails, onchange, onSubmit, onSelectedAvatar }) => 
                   />
                 </Col>
               </Row>
-
-              <Button type="submit" theme="accent">Enregistrer</Button>
+              <Button type="submit" theme="accent">{loading ? <LoadingOutlined className="loading" /> : <PlusOutlined />} Enregistrer</Button>
             </Form>
           </Col>
         </Row>

@@ -2,6 +2,7 @@ import React from "react";
 import "./about-us.scss"
 import $ from 'jquery';
 import ReactDOM from 'react-dom';
+import Avatar from "../avatar/avatar";
 
 class Slider extends React.Component {
 	static defaultProps = {

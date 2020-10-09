@@ -41,9 +41,6 @@ class ChildList extends React.Component {
           schoolBoard: "",
           description: "",
           level: "Niveau 1",
-
-
-
         },
         {
           avatar: require("../../images/content-management/2.jpeg"),

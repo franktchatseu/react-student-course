@@ -15,6 +15,7 @@ class AddChild extends React.Component {
   }
   state = {
     activeAdd: true,
+    loading:false,
     user: {
       firstName: "",
       lastName: "",
@@ -56,11 +57,15 @@ class AddChild extends React.Component {
     axios.post('childreen', { child }).then(
       (res) => {
         console.log(res);
+
       }
     ).catch(
       (err) => {
         console.log(err);
       }
+    ).finally(() => {
+      this.setState(prevState => ({ ...prevState, loading: false  }))
+    }
     )
   }
   clearField() {
@@ -95,7 +100,7 @@ class AddChild extends React.Component {
           <Col lg="2">
           </Col>
           <Col lg="8">
-            <AddChildForm onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} onSelectedAvatar={this.onSelectedAvatar} />
+            <AddChildForm loading={this.state.loading} onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user} onSelectedAvatar={this.onSelectedAvatar} />
           </Col>
 
         </Row>

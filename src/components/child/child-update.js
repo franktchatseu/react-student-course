@@ -17,6 +17,7 @@ class ChildUpdate extends React.Component {
   }
   state = {
     activeAdd: false,
+    loading:false,
     user: {
       info: this.props.location.state.child,
       historyReservation: [
@@ -105,7 +106,7 @@ class ChildUpdate extends React.Component {
           </Col>
           
             <Col lg="6">
-            { this.state.activeAdd ? (<UserAccountDetails onSelectedAvatar={this.onSelectedAvatar} onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />):
+            { this.state.activeAdd ? (<UserAccountDetails loading={this.state.loading} onSelectedAvatar={this.onSelectedAvatar} onSubmit={this.onSubmit} onchange={this.onChange} userDetails={this.state.user.info} />):
                <Activity historyReservation= {this.state.user.historyReservation} />
             }
           </Col> 

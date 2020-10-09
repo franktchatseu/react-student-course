@@ -8,6 +8,7 @@ import SidebarSearch from "./SidebarSearch";
 import SidebarNavItems from "./SidebarNavItems";
 
 import { Store } from "../../../flux";
+import AntSider from "./AntSideBar";
 
 class MainSidebar extends React.Component {
   constructor(props) {
