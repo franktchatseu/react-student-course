@@ -112,6 +112,9 @@ const rightTableColumns = [
 ];
 
 export default class AntTransfert extends React.Component {
+  constructor(props){
+    super(props)
+  }
   state = {
     targetKeys: originTargetKeys,
     disabled: false,

@@ -7,9 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
 import { ModalCustom } from "reactstrap";
 import LoginForm from "./components/auth/login/login";
-export default () => (
+import Store from "./store";
 
-  <Entry />
+export default () => (
+  <Store>
+      <Entry />
+  </Store>
 );
 const Entry = (props)=>{
   const user = localStorage.getItem("user");
