@@ -182,7 +182,7 @@ class TeacherList extends React.Component {
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Mes Enfants" subtitle="Components" className="text-sm-left" />
+          <PageTitle sm="4" title="Liste des Enseignants" subtitle="Enseignants" className="text-sm-left" />
         </Row>
 
         

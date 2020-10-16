@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Dropdown,
   DropdownToggle,
@@ -9,6 +9,7 @@ import {
   NavLink
 } from "shards-react";
 import { useTranslation } from 'react-i18next';
+import { context } from "../../../../store";
 
 export default class UserActions extends React.Component {
   constructor(props) {
@@ -29,44 +30,47 @@ export default class UserActions extends React.Component {
 
   render() {
     return (
-      <Lang toggleUserActions={this.toggleUserActions} visible={this.state.visible}/>
+      <Lang toggleUserActions={this.toggleUserActions} visible={this.state.visible} />
     );
   }
 }
 
-const Lang = ({ visible,toggleUserActions }) => {
-  const { t,i18n } = useTranslation();
+const Lang = ({ visible, toggleUserActions }) => {
+  const { t, i18n } = useTranslation();
   const changeLanguage = code => {
     i18n.changeLanguage(code);
   };
+  const [state, setState] = useContext(context)
   return (
     <NavItem tag={Dropdown} caret toggle={toggleUserActions}>
-    <DropdownToggle caret tag={NavLink} className="cursor px-3">
-      <img
-        className="user-avatar rounded-circle mr-2"
-        src={require("./../../../../images/flag/french-english-flag.jpeg")}
-        alt="User Avatar"
-      />{" "}
-      <span className="d-none d-md-inline-block">{t('Language.ChangeLanguage')}</span>
-    </DropdownToggle>
-    <Collapse tag={DropdownMenu} right small open={visible}>
-      <DropdownItem onClick={() => changeLanguage('en')}>
-      <img
-        className="user-avatar rounded-circle mr-2"
-        src={require("./../../../../images/flag/english-drap.jpg")}
-        alt="User Avatar"
-      />{" "}
-       {t('Language.English')}
-      </DropdownItem>
-      <DropdownItem onClick={() => changeLanguage('fr')}>
-      <img
-        className="user-avatar rounded-circle mr-2"
-        src={require("./../../../../images/flag/france-drap.png")}
-        alt="User Avatar"
-      />{" "}
-         {t('Language.French')}
-      </DropdownItem>
-    </Collapse>
-  </NavItem>
+      <DropdownToggle caret tag={NavLink} className="cursor px-3">
+        <img
+          className="user-avatar rounded-circle mr-2"
+          src={require("./../../../../images/flag/french-english-flag.jpeg")}
+          alt="User Avatar"
+        />{" "}
+        <span className="d-none d-md-inline-block" style={{
+          color:state.activeAccount==="teacher"?'white': null
+        }}>{t('Language.ChangeLanguage')}</span>
+      </DropdownToggle>
+      <Collapse tag={DropdownMenu} right small open={visible}>
+        <DropdownItem onClick={() => changeLanguage('en')}>
+          <img
+            className="user-avatar rounded-circle mr-2"
+            src={require("./../../../../images/flag/english-drap.jpg")}
+            alt="User Avatar"
+          />{" "}
+          {t('Language.English')}
+        </DropdownItem>
+        <DropdownItem onClick={() => changeLanguage('fr')}>
+          <img
+            className="user-avatar rounded-circle mr-2"
+            src={require("./../../../../images/flag/france-drap.png")}
+            alt="User Avatar"
+          />{" "}
+          {t('Language.French')}
+        </DropdownItem>
+      </Collapse>
+    </NavItem>
   );
 };

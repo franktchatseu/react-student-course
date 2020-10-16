@@ -2,22 +2,17 @@ import React from "react";
 import { Nav } from "shards-react";
 import SidebarNavItem from "./SidebarNavItem";
 import { Store } from "../../../flux";
-
-class SidebarNavItems extends React.Component {
+class SidebarNavItemsTeacher extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      navItems: Store.getSidebarItems()
+      navItems: Store.getSidebarItemsTeacher()
     };
 
     this.onChange = this.onChange.bind(this);
   }
 
-  shouldComponentUpdate(){
-    Store.addChangeListener(this.onChange);
-
-    return true
-  }
+ 
   componentWillMount() {
 
     Store.addChangeListener(this.onChange);
@@ -30,7 +25,7 @@ class SidebarNavItems extends React.Component {
   onChange() {
     this.setState({
       ...this.state,
-      navItems: Store.getSidebarItems()
+      navItems: Store.getSidebarItemsTeacher()
     });
   }
 
@@ -38,7 +33,9 @@ class SidebarNavItems extends React.Component {
     const { navItems: items } = this.state;
     return (
       <div className="nav-wrapper">
-        <Nav className="nav--no-borders  flex-column" >
+        <Nav className="nav--no-borders  flex-column"  style={{
+        backgroundColor: '#0d1137'
+      }}>
           {items.map((item, idx) => (
             <SidebarNavItem key={idx} item={item} />
           ))}
@@ -48,6 +45,8 @@ class SidebarNavItems extends React.Component {
   }
 }
 
+const activeItem = ()=>{
+  return true? Store.getSidebarItems(): Store.getSidebarItemsTeacher()
+}
 
-
-export default SidebarNavItems;
+export default SidebarNavItemsTeacher;

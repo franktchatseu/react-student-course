@@ -3,13 +3,8 @@ import { context } from '../store';
 
 const Data = () => {
 
-  const menuParent = [
-    
-    {
-      title: "Child",
-      htmlBefore: '<i class="material-icons">vertical_split</i>',
-      to: "/childs",
-    },
+  const menuTeacher = [
+
     {
       title: "Reservation",
       htmlBefore: '<i class="material-icons">table_chart</i>',
@@ -28,6 +23,7 @@ const Data = () => {
     },
   ];
 
-  return (menuParent)
+
+  return (menuTeacher)
 }
 export default Data

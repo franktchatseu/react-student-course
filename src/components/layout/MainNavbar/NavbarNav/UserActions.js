@@ -9,6 +9,8 @@ import {
   NavItem,
   NavLink
 } from "shards-react";
+import  ChangeAccount  from "./ChangeAccount";
+
 
 export default class UserActions extends React.Component {
   constructor(props) {
@@ -33,10 +35,6 @@ export default class UserActions extends React.Component {
     localStorage.clear();
   }
 
-  
-  changeAccount = () => {
-    
-  }
   render() {
     return (
       <NavItem  tag={Dropdown} caret toggle={this.toggleUserActions}>
@@ -46,15 +44,14 @@ export default class UserActions extends React.Component {
             src={require("./../../../../images/avatars/0.jpg")}
             alt="User Avatar"
           />{" "}
-          <span className="d-none d-md-inline-block"> {this.state.user? this.state.user.name: "Sierra Brooks"} </span>
+          <span style={{fontSize:'16x',fontWeight:'bold'}} className="d-none text-warning d-md-inline-block">{ this.state.user?this.state.user.name: "Unknow User" }</span>
         </DropdownToggle>
         <Collapse tag={DropdownMenu} right small open={this.state.visible}>
           <DropdownItem tag={RouteNavLink} to="user-profile">
             <i className="material-icons">&#xE7FD;</i> Profile
           </DropdownItem>
-          <DropdownItem onClick={this.changeAccount} >
-            <i className="material-icons">&#xE8B8;</i> Change Account
-          </DropdownItem>
+          <DropdownItem divider />
+          <ChangeAccount/>
           <DropdownItem divider />
           <DropdownItem onClick={this.logout}  href="/child-add" className="text-danger">
             <i className="material-icons text-danger">&#xE879;</i> Logout
@@ -63,4 +60,17 @@ export default class UserActions extends React.Component {
       </NavItem>
     );
   }
+}
+
+const avatarUser=()=>{
+  return (
+    <DropdownToggle caret tag={NavLink} className="cursor px-3">
+          <img
+            className="user-avatar rounded-circle mr-2"
+            src={require("./../../../../images/avatars/0.jpg")}
+            alt="User Avatar"
+          />{" "}
+          <span className="d-none d-md-inline-block"> sdsd </span>
+        </DropdownToggle>
+  )
 }

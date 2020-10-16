@@ -9,6 +9,7 @@ import SidebarNavItems from "./SidebarNavItems";
 
 import { Store } from "../../../flux";
 import AntSider from "./AntSideBar";
+import ActiveSidebarNavItem from "./ActiveSidebarNavItem";
 
 class MainSidebar extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class MainSidebar extends React.Component {
       >
         <SidebarMainNavbar hideLogoText={this.props.hideLogoText} />
         <SidebarSearch />
-        <SidebarNavItems />
+        <ActiveSidebarNavItem/>
       </Col>
     );
   }
@@ -73,3 +74,4 @@ MainSidebar.defaultProps = {
 };
 
 export default MainSidebar;
+
